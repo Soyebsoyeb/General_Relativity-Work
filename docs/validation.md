@@ -1,31 +1,36 @@
 # Validation summary
 
-The table is copied from `results/SUMMARY.md`, which is generated from the experiment outputs. Each row has an independent check: a quadrature versus a geodesic integration, a closed form versus the engine, or a known analytic limit.
+This page lists measured results from the twelve experiments in `experiments/`. The numbers are copied from `results/*.json`, which the experiment scripts write, so nothing here is typed in by hand.
 
+Each row compares the code against something independent: an exact quadrature, a closed-form expression, a known analytic limit, or a theoretical convergence rate. The last column says what the value should be.
 
-| Exp. | Quantity | Measured | Reference / expectation |
-|---|---|---|---|
-| 01 | Schwarzschild K(r) log-log slope | -6.000000 | -6 (K = 48 M^2/r^6) |
-| 01 | Kerr K: engine vs closed form, max rel. err. | 4.05e-16 | round-off |
-| 02 | ISCO / photon sphere (symbolic) | 6*M / 3*M | 6M / 3M |
-| 03 | Periapsis advance: geodesic vs quadrature, max rel. diff. | 4.91e-10 | rtol 1e-12 |
-| 03 | Slope of abs(exact/(6 pi M/p) - 1) vs p | -1.05 | -1 (O(M/p)) |
-| 04 | Deflection: geodesic vs quadrature, max rel. diff. | 9.38e-10 | finite r0 |
-| 04 | Slopes of residual after 1st / 2nd order | -2.02 / -3.02 | -2 / -3 |
-| 05 | RK4 observed order | 3.97 | 4 |
-| 06 | Circular-orbit proper period: numeric vs exact, max abs. diff. | 3.49e-14 | rtol 1e-12 |
-| 06 | Slope of period correction vs r | -1.02 | -1 |
-| 07 | Linear deviation vs exact separation: slope in amplitude | 2.00 | 2 |
-| 08 | matter (flat): max rel. error / constraint | 3.39e-11 / 3.40e-10 | rtol 1e-11 |
-| 08 | radiation (flat): max rel. error / constraint | 3.30e-10 / 9.11e-09 | rtol 1e-11 |
-| 08 | de Sitter: max rel. error / constraint | 3.08e-11 / 5.35e-11 | rtol 1e-11 |
-| 08 | flat $\Lambda$CDM: max rel. error / constraint | 2.45e-11 / 1.07e-09 | rtol 1e-11 |
-| 08 | closed dust ($\Omega_m=2$): max rel. error / constraint | 8.62e-11 / 2.66e-08 | rtol 1e-11 |
-| 09 | Kerr ISCO: literature vs W''=0, max discrepancy | 2.75e-14 | root-finder |
-| 09 | Circular-orbit radial acceleration (engine Christoffels) | 2.08e-17 | round-off |
-| 10 | Max abs(1 - T - R) over grid (l<=3) | 4.43e-09 | rtol 1e-10 |
-| 10 | T0/(16 w^2) at w=0.005, 0.01, 0.02, 0.05 | 1.0338, 1.0714, 1.1570, 1.4829 | -> 1 as w -> 0 |
-| 10 | Sensitivity to r*_max (l=2, w=0.3) | 3.07e-11 |  |
-| 11 | G^(1) vanishes; G^(2)_tt | True; 3*cos(2*t - 2*z)/4 - 1/4 |  |
-| 11 | Truncation-error slope in eps | 4.00 | 4 (G_tt even in eps) |
-| 12 | Tidal tensor E_ij (Cartan frame) | Matrix([[-2*M/r**3, 0, 0], [0, M/r**3, 0], [0, 0, M/r**3]]) | diag(-2M, M, M)/r^3 |
+| Experiment | Quantity | What was measured | Result | Expected |
+|---|---|---|---|---|
+| 01 | Kretschmann scalar of Schwarzschild | Slope of log K against log r | -6.0000 | $-6$, since $K=48M^{2}/r^{6}$ |
+| 01 | Kretschmann scalar of Kerr | Full Riemann contraction against a closed form; largest relative difference | 4.1e-16 | rounding error |
+| 02 | ISCO and photon sphere of Schwarzschild | Radii found by solving the effective-potential conditions symbolically | 6*M and 3*M | $6M$ and $3M$ |
+| 03 | Periapsis advance | Geodesic integration against exact quadrature; largest relative difference | 4.9e-10 | integrator tolerance |
+| 03 | Periapsis advance | Slope of the relative deviation from $6\pi M/p$ against $p$ | -1.05 | $-1$ (relative error of order $M/p$) |
+| 04 | Light deflection | Geodesic integration against exact quadrature; largest relative difference | 9.4e-10 | finite start radius |
+| 04 | Light deflection | Slopes of the residual after the first and second order terms | -2.02 and -3.02 | $-2$ and $-3$ |
+| 05 | Fixed-step Runge-Kutta | Observed order of convergence | 3.97 | 4 |
+| 06 | Circular-orbit proper period | Numerical against exact; largest absolute difference | 3.5e-14 | integrator tolerance |
+| 06 | Circular-orbit proper period | Slope of the relative correction against $r$ | -1.02 | $-1$ |
+| 07 | Gravitational-wave test particles | Slope of the difference (linear equation against exact separation) against amplitude | 2.00 | 2 |
+| 08 | FLRW expansion, five models | Worst relative error against the exact solution | 3.3e-10 | integrator tolerance |
+| 08 | FLRW expansion, five models | Largest Friedmann-constraint residual | 2.7e-08 | integrator tolerance |
+| 09 | Kerr ISCO | Literature radius against the root of the engine's effective function; largest difference | 2.8e-14 | root-finder tolerance |
+| 09 | Kerr circular orbit | Radial acceleration from the engine's Christoffel symbols | 2.1e-17 | rounding error |
+| 10 | Scalar scattering | Largest value of $1-T-R$ over the grid | 4.4e-09 | integrator tolerance |
+| 10 | Scalar scattering | $T_0/\left(16M^{2}\omega^{2}\right)$ at $M\omega=0.005$ | 1.0338 | tends to 1 |
+| 11 | Second-order plane-wave curvature | Slope of the truncation error against $\epsilon$ | 4.00 | 4, because $G_{tt}$ is even in $\epsilon$ |
+
+Further notes:
+
+- Experiment 11 also finds that the first-order Einstein tensor of the plane wave vanishes, and that the second-order component is $G^{(2)}_{tt}=\frac{1}{4}\left(3\cos\left(2t-2z\right)-1\right)$ for unit amplitude and frequency.
+- Experiment 12 finds the tidal tensor $E_{ij}=\frac{M}{r^{3}}\,\mathrm{diag}\left(-2,1,1\right)$ from Cartan's equations, with zero trace.
+- The complete table, in a machine-readable layout, is `results/SUMMARY.md`.
+
+## How to read the tolerances
+
+A result labelled "integrator tolerance" means the difference is limited by the relative tolerance requested from the numerical integrator, typically $10^{-10}$ to $10^{-12}$, and not by any physical approximation. A result labelled "rounding error" is at the level of double-precision arithmetic.

@@ -1,25 +1,67 @@
-# 5. Newtonian limit
+# 5. The Newtonian limit
 
-## Assumptions
-Weak field $|\Phi|\ll1$, slow motion $v\ll1$, static source, $c=1$ then restored by dimensional analysis.
+**In one paragraph.** For weak fields and slow motion, general relativity must reduce to Newtonian gravity. This page shows how the Newtonian equations come out of the metric and the Einstein equation, and measures how big the relativistic corrections are.
 
-## Derivation
-Write $g_{00}=-(1+2\Phi)$, $g_{ij}=(1-2\Phi)\delta_{ij}$. For a slow particle $u^\mu\approx(1,\mathbf v)$, so the dominant term is $\Gamma^i{}_{00}=-\tfrac12g^{ij}\partial_jg_{00}=\partial_i\Phi$ (static field, $O(\Phi)$), and the geodesic equation reduces to
-$$\frac{d^2x^i}{dt^2}=-\partial_i\Phi.$$
-The linearised Einstein tensor for this $h_{\mu\nu}$ has $G^{(1)}_{00}=2\nabla^2\Phi$ (verified symbolically with an arbitrary function $\Phi(x,y,z)$). With $T_{00}\approx\rho$ the 00 equation is $\nabla^2\Phi=4\pi G\rho$.
+## 1. Assumptions
 
-## Order of the approximation
-Corrections are first order in $M/r$ and $v^2$. Exact Schwarzschild statements used in experiments:
+The gravitational potential is weak, $|\Phi|\ll 1$. Matter moves slowly compared with light, $v\ll 1$. The source is static. Units are $c=1$.
 
-* A particle momentarily at rest has $d^2r/dt^2=-Mf/r^2$ with $f=1-2M/r$, i.e. Newton's value with relative correction exactly $2M/r$.
-* Circular orbits: coordinate period $2\pi r^{3/2}/\sqrt M$ (Kepler's third law holds exactly in Schwarzschild time); proper period $\times\sqrt{1-3M/r}$, so $\tau/\tau_N-1\approx-3M/2r$.
-* Periapsis advance $\approx6\pi M/p$ per orbit with relative corrections $O(M/p)$.
+## 2. The weak-field metric
 
-## Where Newton fails
-At the 1% level the period needs $r\gtrsim150M$ (experiment 06); the periapsis advance accumulates linearly with orbit number, so even at large $p$ the angular error grows secularly.
+Write
 
-## Implementation / validation
-`tests/test_quantum_and_numerics.py` (Poisson equation from $G^{(1)}_{00}$; coordinate acceleration $-Mf/r^2$), `tests/test_geodesics.py`, experiment 06.
+$$
+g_{00}=-\left(1+2\Phi\right),\qquad g_{ij}=\left(1-2\Phi\right)\delta_{ij}.
+$$
 
-## Limitations
-Test-mass limit only; no post-Newtonian two-body dynamics.
+## 3. Equation of motion
+
+For a slow particle $u^{\mu}\approx\left(1,\mathbf{v}\right)$, so the dominant term in the geodesic equation is $\Gamma^{i}{}_{00}$:
+
+$$
+\Gamma^{i}{}_{00}=-\frac{1}{2}\,g^{ij}\,\partial_j g_{00}=\partial_i\Phi .
+$$
+
+The geodesic equation then reduces to
+
+$$
+\frac{d^{2}x^{i}}{dt^{2}}=-\partial_i\Phi .
+$$
+
+## 4. Field equation
+
+Treat the metric as flat space plus a small perturbation $h_{\mu\nu}$ with $h_{00}=h_{ii}=-2\Phi$. The linearised Einstein tensor has the time-time component
+
+$$
+G^{(1)}_{00}=2\,\nabla^{2}\Phi .
+$$
+
+The code checks this symbolically for an arbitrary function $\Phi(x,y,z)$. For dust, $T_{00}\approx\rho$, so $G_{00}=8\pi\,T_{00}$ becomes
+
+$$
+\nabla^{2}\Phi=4\pi G\rho,
+$$
+
+which is Poisson's equation.
+
+## 5. How large are the corrections?
+
+Three exact results for Schwarzschild show the size of the correction, which is of relative order $M/r$.
+
+- **Static particle.** A particle momentarily at rest has coordinate acceleration $d^{2}r/dt^{2}=-Mf/r^{2}$ with $f=1-2M/r$. This is Newton's value with a relative correction of exactly $2M/r$.
+- **Circular orbits.** The period in coordinate time is exactly $2\pi r^{3/2}/\sqrt{M}$, which is Kepler's third law. The period in the particle's own time is shorter by the factor $\sqrt{1-3M/r}$, a relative correction of about $-3M/(2r)$.
+- **Precession.** The periapsis advances by about $6\pi M/p$ per orbit. Newtonian orbits are closed ellipses and do not precess.
+
+## 6. Where Newton's description fails
+
+At the 1% level, the proper period of a circular orbit needs $r\gtrsim 150M$ (experiment 06). Even at large radius the precession accumulates linearly with the number of orbits, so a long Newtonian prediction drifts away from the relativistic orbit.
+
+## 7. How it is checked
+
+- The Poisson-equation component test and the coordinate-acceleration test are in `tests/test_quantum_and_numerics.py`.
+- The circular-orbit period is measured by integrating the geodesic through $\Delta\varphi=2\pi$ and compared with $2\pi r^{3/2}\sqrt{1-3M/r}$. They agree to about $10^{-14}$ (experiment 06).
+- The log-log slope of the relative period correction against $r$ is $-1$.
+
+## 8. Limits
+
+Test-mass limit only. There is no post-Newtonian two-body dynamics.

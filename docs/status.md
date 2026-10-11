@@ -1,31 +1,48 @@
 # Implementation status
 
-| Area | Status | Notes |
+This page lists what is finished, what is partly done, and what does not exist. It is meant to be an accurate account, not a sales list.
+
+## Complete
+
+| Area | Notes |
+|---|---|
+| Metric, tensors, index operations, coordinate transformations | components are stored explicitly |
+| Christoffel symbols and covariant derivative of any rank | any mixture of upper and lower indices |
+| Riemann, Ricci, Weyl and Einstein tensors | Weyl tensor for dimension 3 or higher |
+| Bianchi identities, curvature symmetries | tested on explicit metrics |
+| Curvature invariants | Kretschmann, Ricci squared, Weyl squared, Euler density; Pontryagin density in four dimensions |
+| Lie derivative | coordinate formula |
+| Geodesics | symbolic (from the connection and from the Euler-Lagrange equations) and numerical |
+| Geodesic deviation and the tidal tensor | |
+| Schwarzschild | derivation from the ansatz, horizon-regular coordinates, orbits, observables |
+| Reissner-Nordstrom | exact Einstein-Maxwell check |
+| Newtonian limit | analytic and numerical |
+| Linearised gravity, gauge freedom, plane waves | flat background only |
+| FLRW cosmology | compared with five analytic solutions |
+| Differential forms, tetrads, Cartan equations | frames are supplied by the user |
+
+## Partial
+
+| Area | What exists | What is missing |
 |---|---|---|
-| Metric, tensors, index operations, coordinate transformations | complete | explicit components; no abstract-index algebra |
-| Christoffel, covariant derivative (any rank), Riemann, Ricci, Weyl, Einstein | complete | Weyl for $n\ge3$ |
-| Bianchi identities, curvature symmetries, Kretschmann, Euler density, Pontryagin density | complete | Pontryagin 4D only |
-| Killing vectors | partial | **verification** of supplied fields and conserved quantities; no solver for the Killing equation |
-| Lie derivative | complete | coordinate formula |
-| Geodesic equation: symbolic (Euler–Lagrange) and numerical | complete | adaptive DOP853, events, constraint and conservation monitors, fixed-step RK4 for order tests |
-| Geodesic deviation, tidal tensor | complete | static frame in the experiment |
-| Einstein–Hilbert variation | partial | identities checked on supplied backgrounds; reduced static-spherical action; no boundary (GHY) term; no general variational engine |
-| Schwarzschild (derivation from ansatz, EF coordinates, invariants, orbits, observables) | complete | Birkhoff not proved |
-| Reissner–Nordström | complete | exact Einstein–Maxwell verification |
-| Kerr | partial | vacuum character verified **numerically** at sample points; equatorial circular orbits and ISCO validated; no symbolic proof, no off-equatorial orbits |
-| Newtonian limit | complete | analytic and numeric |
-| Light deflection, periapsis advance, redshift, Shapiro delay | complete | dual computation (quadrature + geodesics) except Shapiro (quadrature vs weak-field formula) |
-| Linearised gravity, gauge, TT waves, deviation | complete | flat background only |
-| Second-order perturbation series | partial | explicit $\epsilon^2$ truncation; specific families |
-| FLRW | complete | analytic comparisons for five models |
-| Differential forms, tetrads, Cartan equations | complete | frames supplied by user; no spinors, no first-order action |
-| Scalar field on Schwarzschild | partial | classical scattering; no quantisation |
-| Quadratic gravitational action, Fierz–Pauli | partial | $h$ restricted to two coordinates in tests |
-| EFT corrections | partial | one symbolic example + dimensional estimate |
-| String theory | explanatory text only | not implemented |
-| **Ray tracing / imaging (`numerical/ray_tracing.py`)** | **planned** | null geodesic bundles are in experiment 04; no image-plane code |
-| Graviton quantisation, amplitudes, loop calculations | **not implemented** | not claimed |
-| Numerical relativity (3+1 evolution) | **not implemented** | not claimed |
-| Notebooks | complete | 12 notebooks, executed |
+| Killing vectors | verifying a supplied vector, and conserved quantities | a solver for the Killing equation |
+| Einstein-Hilbert variation | identities checked on supplied backgrounds; a reduced action for static spherical metrics | a general variational engine; boundary terms |
+| Kerr | metric, horizons, ergosurface, circular orbits, ISCO; vacuum property checked at sample points | a symbolic vacuum proof; off-equatorial orbits |
+| Second-order perturbations | explicit truncated series for specific families | a general framework |
+| Scalar field on Schwarzschild | classical scattering | quantisation |
+| Quadratic gravitational action | verified for perturbations depending on two coordinates | all four coordinates (a cost limit, not a principle) |
+| Effective field theory | one symbolic example and one estimate | anything beyond |
+
+## Explanatory text only
+
+String theory (page 11). Nothing is computed.
+
+## Planned
+
+A ray-tracing and imaging module. Null geodesic bundles appear in experiment 04, but there is no image-plane code.
+
+## Not implemented, and not claimed
+
+Graviton quantisation, scattering amplitudes, loop calculations, and numerical relativity (3+1 evolution).
 
 **This repository does not solve quantum gravity.**
