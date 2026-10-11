@@ -11,7 +11,6 @@
 ![Types](https://img.shields.io/badge/types-mypy%20clean-2a6db2)
 ![Notebooks](https://img.shields.io/badge/notebooks-12%20executed-orange)
 ![Experiments](https://img.shields.io/badge/experiments-12%20reproducible-blueviolet)
-![GR library](https://img.shields.io/badge/third--party%20GR%20library-none-lightgrey)
 ![Status](https://img.shields.io/badge/status-research%20code-informational)
 
 Md Soyeb Hoque, Jadavpur University
