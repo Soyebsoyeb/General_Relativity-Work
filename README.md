@@ -1,6 +1,6 @@
 <div align="center">
 
-# general-relativity-from-scratch
+# general-relativity Research
 
 **Symbolic and numerical general relativity, implemented from first principles and validated against independent calculations.**
 
