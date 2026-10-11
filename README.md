@@ -1,6 +1,6 @@
 <div align="center">
 
-# General_Relativity Research
+# General Relativity Research
 
 **Symbolic and numerical general relativity, implemented from first principles and validated against independent calculations.**
 
