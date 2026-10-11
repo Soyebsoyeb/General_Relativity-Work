@@ -1,0 +1,10 @@
+{
+  "G1_is_zero": true,
+  "G2_tt": "3*cos(2*t - 2*z)/4 - 1/4",
+  "G2_nonzero_components": {
+    "(0, 0)": "3*cos(2*t - 2*z)/4 - 1/4",
+    "(0, 3)": "1/4 - 3*cos(2*t - 2*z)/4",
+    "(3, 3)": "3*cos(2*t - 2*z)/4 - 1/4"
+  },
+  "truncation_error_slope": 4.000720035856417
+}

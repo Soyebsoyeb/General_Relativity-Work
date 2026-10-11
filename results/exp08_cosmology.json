@@ -1,0 +1,22 @@
+{
+  "matter (flat)": {
+    "max_rel_error": 3.3877904763830335e-11,
+    "max_constraint": 3.3998759363385034e-10
+  },
+  "radiation (flat)": {
+    "max_rel_error": 3.3029191693861373e-10,
+    "max_constraint": 9.109086818170908e-09
+  },
+  "de Sitter": {
+    "max_rel_error": 3.081670502164587e-11,
+    "max_constraint": 5.3510973430093145e-11
+  },
+  "flat $\\Lambda$CDM": {
+    "max_rel_error": 2.4540808239011632e-11,
+    "max_constraint": 1.0658069982127927e-09
+  },
+  "closed dust ($\\Omega_m=2$)": {
+    "max_rel_error": 8.620988707688872e-11,
+    "max_constraint": 2.6600901037454605e-08
+  }
+}

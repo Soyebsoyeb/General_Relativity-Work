@@ -1,0 +1,5 @@
+{
+  "E_ij": "Matrix([[-2*M/r**3, 0, 0], [0, M/r**3, 0], [0, 0, M/r**3]])",
+  "trace": "0",
+  "matches_expected": true
+}

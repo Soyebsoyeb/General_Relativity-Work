@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "python": "3.12.3",
+    "platform": "Linux-6.18.44-fc-v114-x86_64-with-glibc2.39",
+    "numpy": "2.4.4",
+    "scipy": "1.17.1",
+    "sympy": "1.14.0"
+  },
+  "timings": {
+    "schwarzschild_full_geometry_s": 0.8142988760000094,
+    "schwarzschild_kretschmann_s": 1.392978548000002,
+    "flrw_full_geometry_s": 1.1262187319999981,
+    "minkowski_geometry_s": 0.005824658999998178,
+    "geodesic_system_build_s": 0.1572416129999965,
+    "geodesic_5000M_rtol1e-10_s": 0.08681666300000757,
+    "geodesic_rhs_evaluations": 3578,
+    "geodesic_rhs_per_second": 41213.286440181284
+  }
+}

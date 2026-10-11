@@ -1,0 +1,28 @@
+site_name: general-relativity-from-scratch
+docs_dir: docs
+theme:
+  name: readthedocs
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js
+nav:
+  - Home: index.md
+  - Conventions: conventions.md
+  - Status: status.md
+  - Validation: validation.md
+  - Reproducibility: reproducibility.md
+  - API overview: api.md
+  - Derivations:
+      - 1. Connection and curvature: derivations/01_connection_and_curvature.md
+      - 2. Einstein–Hilbert action: derivations/02_einstein_hilbert.md
+      - 3. Schwarzschild: derivations/03_schwarzschild.md
+      - 4. Reissner–Nordström and Kerr: derivations/04_charged_and_rotating.md
+      - 5. Newtonian limit: derivations/05_newtonian_limit.md
+      - 6. Linearised gravity and waves: derivations/06_linearized_gravity_and_gravitational_waves.md
+      - 7. FLRW: derivations/07_flrw_cosmology.md
+      - 8. Tetrads and Cartan: derivations/08_tetrads_and_cartan.md
+      - 9. Fields on curved spacetime: derivations/09_quantum_fields_on_curved_spacetime.md
+      - 10. Perturbative gravity and EFT: derivations/10_perturbative_gravity_and_eft.md
+      - 11. String theory bridge: derivations/11_string_theory_bridge.md

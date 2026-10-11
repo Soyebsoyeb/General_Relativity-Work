@@ -1,0 +1,72 @@
+{
+  "isco_table": [
+    {
+      "a": 0.0,
+      "prograde": true,
+      "isco_literature": 6.0,
+      "isco_from_W2": 5.99999999999999,
+      "W_residual": 0.0,
+      "Wprime_residual": 0.0
+    },
+    {
+      "a": 0.0,
+      "prograde": false,
+      "isco_literature": 6.0,
+      "isco_from_W2": 5.99999999999999,
+      "W_residual": 0.0,
+      "Wprime_residual": 0.0
+    },
+    {
+      "a": 0.5,
+      "prograde": true,
+      "isco_literature": 4.233002529530826,
+      "isco_from_W2": 4.233002529530822,
+      "W_residual": -1.1102230246251565e-16,
+      "Wprime_residual": 8.326672684688674e-17
+    },
+    {
+      "a": 0.5,
+      "prograde": false,
+      "isco_literature": 7.554584714512358,
+      "isco_from_W2": 7.55458471451233,
+      "W_residual": 2.220446049250313e-16,
+      "Wprime_residual": -1.214306433183765e-16
+    },
+    {
+      "a": 0.9,
+      "prograde": true,
+      "isco_literature": 2.320883041761887,
+      "isco_from_W2": 2.3208830417618866,
+      "W_residual": 2.220446049250313e-16,
+      "Wprime_residual": -6.106226635438361e-16
+    },
+    {
+      "a": 0.9,
+      "prograde": false,
+      "isco_literature": 8.717352279606489,
+      "isco_from_W2": 8.717352279606493,
+      "W_residual": 0.0,
+      "Wprime_residual": 3.8163916471489756e-17
+    },
+    {
+      "a": 0.998,
+      "prograde": true,
+      "isco_literature": 1.2369706551751847,
+      "isco_from_W2": 1.236970655175169,
+      "W_residual": -1.887379141862766e-15,
+      "Wprime_residual": 1.0547118733938987e-15
+    },
+    {
+      "a": 0.998,
+      "prograde": false,
+      "isco_literature": 8.99437445480357,
+      "isco_from_W2": 8.994374454803548,
+      "W_residual": 2.220446049250313e-16,
+      "Wprime_residual": -3.122502256758253e-17
+    }
+  ],
+  "max_isco_discrepancy": 2.7533531010703882e-14,
+  "circular_geodesic_radial_acceleration": 2.0816681711721685e-17,
+  "E_literature_minus_engine": 1.1102230246251565e-16,
+  "L_literature_minus_engine": 1.3322676295501878e-15
+}

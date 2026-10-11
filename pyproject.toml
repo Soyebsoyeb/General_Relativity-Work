@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gr-from-scratch"
+version = "0.1.0"
+description = "General relativity from first principles: symbolic tensor calculus, geodesics, perturbations and cosmology in Python"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Md Soyeb Hoque" }]
+dependencies = [
+    "numpy>=1.26",
+    "scipy>=1.11",
+    "sympy>=1.12",
+    "matplotlib>=3.8",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.4", "mypy>=1.8", "nbformat", "nbclient", "ipykernel"]
+docs = ["mkdocs>=1.5", "pymdown-extensions"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q -m 'not slow'"
+markers = [
+    "slow: expensive symbolic or numerical checks (run with `pytest -m slow`)",
+]
+
+[tool.ruff]
+extend-exclude = ["notebooks/*.ipynb"]
+line-length = 120
+target-version = "py310"
+src = ["src", "tests", "experiments"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E741", "E731", "B905", "E501", "UP037"]
+
+[tool.ruff.lint.per-file-ignores]
+"experiments/*" = ["E402", "I001"]
+"tests/*" = ["E402"]
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true
+check_untyped_defs = false
+warn_unused_ignores = true

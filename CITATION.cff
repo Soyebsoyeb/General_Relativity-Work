@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "general-relativity-from-scratch"
+version: 0.1.0
+date-released: 2026-10-11
+license: MIT
+type: software
+abstract: >-
+  Symbolic and numerical general relativity implemented from first principles
+  with SymPy, NumPy and SciPy.
+authors:
+  - family-names: "Hoque"
+    given-names: "Md Soyeb"
+    affiliation: "Jadavpur University"
